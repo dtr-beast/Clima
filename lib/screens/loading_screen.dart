@@ -18,8 +18,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     super.initState();
     try {
       getLocation();
-    }
-    catch (e) {
+    } catch (e) {
       print(e);
     }
   }
