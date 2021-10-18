@@ -1,12 +1,24 @@
-import 'package:flutter/material.dart';
 import 'package:clima/utilities/constants.dart';
+import 'package:flutter/material.dart';
 
 class LocationScreen extends StatefulWidget {
+  LocationScreen({this.name, this.temp});
+
+  final int temp;
+  final String name;
+
   @override
   _LocationScreenState createState() => _LocationScreenState();
 }
 
 class _LocationScreenState extends State<LocationScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // print('Temp: ${widget.temp}');
+    // print('Name: ${widget.name}');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +61,7 @@ class _LocationScreenState extends State<LocationScreen> {
                 child: Row(
                   children: <Widget>[
                     Text(
-                      '32°',
+                      '${widget.temp}°',
                       style: kTempTextStyle,
                     ),
                     Text(
@@ -62,7 +74,7 @@ class _LocationScreenState extends State<LocationScreen> {
               Padding(
                 padding: EdgeInsets.only(right: 15.0),
                 child: Text(
-                  "It's 🍦 time in San Francisco!",
+                  "It's 🍦 time in ${widget.name}!",
                   textAlign: TextAlign.right,
                   style: kMessageTextStyle,
                 ),
